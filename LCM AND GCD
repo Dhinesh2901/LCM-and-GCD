@@ -1,0 +1,20 @@
+class Solution {
+  public:
+    vector<long long> lcmAndGcd(long long A , long long B) {
+        vector<long long>ans;
+        long long x=max(A,B);
+        long long y=min(A,B);
+        long long p=A*B;
+        while(x%y!=0)
+        {
+            long long temp=y;
+            y=x%y;
+            x=temp;
+        }
+        long long gcd=y;
+        long long lcm=p/gcd;
+        ans.push_back(lcm);
+        ans.push_back(gcd);
+        return ans;
+    }
+};
